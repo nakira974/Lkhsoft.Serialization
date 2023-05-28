@@ -302,5 +302,113 @@ namespace Lkhsoft.Serialization.Activities.Properties {
                 return ResourceManager.GetString("ValidationValue_Error", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take an xml string and deserialize it into a T object.
+        /// </summary>
+        public static string XmlDeserialization_Description {
+            get {
+                return ResourceManager.GetString("XmlDeserialization_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XmlDeserialization.
+        /// </summary>
+        public static string XmlDeserialization_DisplayName {
+            get {
+                return ResourceManager.GetString("XmlDeserialization_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xml serialized object to deserialize.
+        /// </summary>
+        public static string XmlDeserialization_Xml_Description {
+            get {
+                return ResourceManager.GetString("XmlDeserialization_Xml_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xml.
+        /// </summary>
+        public static string XmlDeserialization_Xml_DisplayName {
+            get {
+                return ResourceManager.GetString("XmlDeserialization_Xml_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xml object deserialized.
+        /// </summary>
+        public static string XmlDeserialization_XmlObject_Description {
+            get {
+                return ResourceManager.GetString("XmlDeserialization_XmlObject_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xmlObject.
+        /// </summary>
+        public static string XmlDeserialization_XmlObject_DisplayName {
+            get {
+                return ResourceManager.GetString("XmlDeserialization_XmlObject_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take a T object in input and serialize it into an xml string.
+        /// </summary>
+        public static string XmlSerialization_Description {
+            get {
+                return ResourceManager.GetString("XmlSerialization_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XmlSerialization.
+        /// </summary>
+        public static string XmlSerialization_DisplayName {
+            get {
+                return ResourceManager.GetString("XmlSerialization_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xml serialized object.
+        /// </summary>
+        public static string XmlSerialization_Xml_Description {
+            get {
+                return ResourceManager.GetString("XmlSerialization_Xml_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xml.
+        /// </summary>
+        public static string XmlSerialization_Xml_DisplayName {
+            get {
+                return ResourceManager.GetString("XmlSerialization_Xml_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Object to serialize into an xml string.
+        /// </summary>
+        public static string XmlSerialization_XmlObject_Description {
+            get {
+                return ResourceManager.GetString("XmlSerialization_XmlObject_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to xmlObject.
+        /// </summary>
+        public static string XmlSerialization_XmlObject_DisplayName {
+            get {
+                return ResourceManager.GetString("XmlSerialization_XmlObject_DisplayName", resourceCulture);
+            }
+        }
     }
 }

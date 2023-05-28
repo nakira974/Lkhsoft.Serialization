@@ -34,6 +34,8 @@
   <ItemGroup>
     <None Remove="Designers\JsonDeserializationDesigner.xaml" />
     <None Remove="Designers\JsonSerializationDesigner.xaml" />
+    <None Remove="Designers\XmlDeserializationDesigner.xaml" />
+    <None Remove="Designers\XmlSerializationDesigner.xaml" />
   </ItemGroup>
   <!-- Package Icon -->
   <ItemGroup>
@@ -72,6 +74,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </Page>
     <Page Include="Designers\JsonSerializationDesigner.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="Designers\XmlDeserializationDesigner.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </Page>
+    <Page Include="Designers\XmlSerializationDesigner.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </Page>
     <Page Include="Themes\Icons.xaml">
