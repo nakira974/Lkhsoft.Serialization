@@ -141,26 +141,6 @@
     <value>Do</value>
     <comment>generic</comment>
   </data>
-  <data name="Common_Category" xml:space="preserve">
-    <value>Common</value>
-    <comment>category</comment>
-  </data>
-  <data name="Authentication_Category" xml:space="preserve">
-    <value>Authentication</value>
-    <comment>category</comment>
-  </data>
-  <data name="Input_Category" xml:space="preserve">
-    <value>Input</value>
-    <comment>category</comment>
-  </data>
-  <data name="Output_Category" xml:space="preserve">
-    <value>Output</value>
-    <comment>category</comment>
-  </data>
-  <data name="Options_Category" xml:space="preserve">
-    <value>Options</value>
-    <comment>category</comment>
-  </data>
   <data name="ValidationScope_Error" xml:space="preserve">
     <value>Cannot be used outside of a {0}.</value>
     <comment>error message; {0} is a container activity (e.g. a scope)</comment>
@@ -168,14 +148,6 @@
   <data name="ValidationValue_Error" xml:space="preserve">
     <value>Please provide a value for {0}.</value>
     <comment>error message; {0} is the name of a missing property</comment>
-  </data>
-  <data name="ValidationExclusiveProperties_Error" xml:space="preserve">
-    <value>Please provide a value either for {0} or {1}, but not both.</value>
-    <comment>error message; {0} &amp; {1} are mutually exclusive activities</comment>
-  </data>
-  <data name="ValidationOverloadGroup_Error" xml:space="preserve">
-    <value>Please provide values for both {0} and {1}.</value>
-    <comment>error message; {0} &amp; {1} are complementary properties</comment>
   </data>
   <data name="JsonDeserialization_DisplayName" xml:space="preserve">
     <value>JsonDeserialization</value>
@@ -233,10 +205,6 @@
     <value>Common</value>
     <comment>category</comment>
   </data>
-  <data name="Input_Category" xml:space="preserve">
-    <value>Input</value>
-    <comment>category</comment>
-  </data>
   <data name="Output_Category" xml:space="preserve">
     <value>Output</value>
     <comment>category</comment>
@@ -244,14 +212,6 @@
   <data name="Options_Category" xml:space="preserve">
     <value>Options</value>
     <comment>category</comment>
-  </data>
-  <data name="ValidationScope_Error" xml:space="preserve">
-    <value>Cannot be used outside of a {0}.</value>
-    <comment>error message; {0} is a container activity (e.g. a scope)</comment>
-  </data>
-  <data name="ValidationValue_Error" xml:space="preserve">
-    <value>Please provide a value for {0}.</value>
-    <comment>error message; {0} is the name of a missing property</comment>
   </data>
   <data name="ValidationExclusiveProperties_Error" xml:space="preserve">
     <value>Please provide a value either for {0} or {1}, but not both.</value>
@@ -277,10 +237,6 @@
     <value>Xml serialized object to deserialize</value>
     <comment>property description</comment>
   </data>
-  <data name="Input_Category" xml:space="preserve">
-    <value>Input</value>
-    <comment>category</comment>
-  </data>
   <data name="XmlDeserialization_XmlObject_DisplayName" xml:space="preserve">
     <value>xmlObject</value>
     <comment>property name</comment>
@@ -288,10 +244,6 @@
   <data name="XmlDeserialization_XmlObject_Description" xml:space="preserve">
     <value>Xml object deserialized</value>
     <comment>property description</comment>
-  </data>
-  <data name="Output_Category" xml:space="preserve">
-    <value>Output</value>
-    <comment>category</comment>
   </data>
   <data name="XmlSerialization_DisplayName" xml:space="preserve">
     <value>XmlSerialization</value>
@@ -308,10 +260,6 @@
   <data name="XmlSerialization_XmlObject_Description" xml:space="preserve">
     <value>Object to serialize into an xml string</value>
     <comment>property description</comment>
-  </data>
-  <data name="Input_Category" xml:space="preserve">
-    <value>Input</value>
-    <comment>category</comment>
   </data>
   <data name="XmlSerialization_Xml_DisplayName" xml:space="preserve">
     <value>xml</value>
