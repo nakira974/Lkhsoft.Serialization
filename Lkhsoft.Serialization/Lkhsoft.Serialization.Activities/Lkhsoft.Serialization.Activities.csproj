@@ -10,6 +10,7 @@
     <DocumentationFile>bin\$(Configuration)\Lkhsoft.Serialization.Activities.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="lkhsoft.utility" Version="3.1.1" />
     <PackageReference Include="System.Activities.Metadata" Version="6.0.0-*" PrivateAssets="All" />
     <PackageReference Include="UiPath.Workflow.Runtime" Version="6.0.0-20220909-01" PrivateAssets="All" />
   </ItemGroup>
