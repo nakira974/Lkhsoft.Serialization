@@ -10,6 +10,7 @@ using UiPath.Shared.Activities.Localization;
 
 namespace Lkhsoft.Serialization.Activities
 {
+    /// <inheritdoc />
     [LocalizedDisplayName(nameof(Resources.JsonDeserialization_DisplayName))]
     [LocalizedDescription(nameof(Resources.JsonDeserialization_Description))]
     public class JsonDeserialization : ContinuableAsyncCodeActivity

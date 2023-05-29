@@ -1,6 +1,3 @@
-using Lkhsoft.Utility.Serialization;
-using Lkhsoft.Utility.Serialization.Implementations;
-
 namespace Lkhsoft.Serialization.Activities.Design.Designers
 {
     /// <summary>
