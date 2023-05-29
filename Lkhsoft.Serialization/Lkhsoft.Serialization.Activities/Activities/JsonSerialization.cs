@@ -83,7 +83,7 @@ namespace Lkhsoft.Serialization.Activities
             // Add execution logic HERE
             ///////////////////////////
             
-            var @object = JsonObject.Get(context);
+            Object @object = JsonObject.Get(context);
             try
             {
                 var result = await _jsonSerializer.SerializeAsync<Object>(@object);

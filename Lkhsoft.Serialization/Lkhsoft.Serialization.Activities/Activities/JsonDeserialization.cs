@@ -85,7 +85,7 @@ namespace Lkhsoft.Serialization.Activities
             var json = Json.Get(context);
             try
             {
-                var result = await _jsonSerializer.DeserializeAsync<object>(json);
+                Object result = await _jsonSerializer.DeserializeAsync<Object>(json);
                 if (result is null ) throw new NullReferenceException("Deserialized Json object is null!");
                 try
                 {
