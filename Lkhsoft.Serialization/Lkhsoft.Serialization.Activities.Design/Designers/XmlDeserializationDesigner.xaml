@@ -15,6 +15,7 @@
             </ResourceDictionary.MergedDictionaries>
             <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
             <converters:ActivityIconConverter x:Key="ActivityIconConverter" />
+            <sapc:ModelToObjectValueConverter x:Key="ModelItemConverter" /> 
         </ResourceDictionary>
     </sap:ActivityDesigner.Resources>
 
@@ -23,12 +24,7 @@
     </sap:ActivityDesigner.Icon>
 
     <uip:ActivityDecoratorControl Style="{StaticResource ActivityDecoratorStyle}">
-        <Grid Width="300">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
+        <StackPanel>
             <Label Content="{x:Static activity:Resources.XmlDeserialization_Xml_DisplayName}" Grid.Row="0"
                    ToolTip="{x:Static activity:Resources.XmlDeserialization_Xml_Description}"/>
             <sapv:ExpressionTextBox Grid.Row="1" ExpressionType="{Binding ModelItem.Properties[Xml].PropertyType.GenericTypeArguments[0]}" OwnerActivity="{Binding Path=ModelItem}" HintText="{x:Static activity:Resources.XmlDeserialization_Xml_Description}" UseLocationExpression="False">
@@ -36,6 +32,19 @@
                     <Binding Path="ModelItem.Xml" Converter="{StaticResource ArgumentToExpressionConverter}" Mode="TwoWay" ConverterParameter="In" UpdateSourceTrigger="PropertyChanged" />
                 </sapv:ExpressionTextBox.Expression>
             </sapv:ExpressionTextBox>
-        </Grid>
+            <Label Margin="0,0,0, 0"
+                   Padding="0,0,0,0"
+                   Content="{x:Static activity:Resources.Activity_DataType_DisplayName}"
+                   ToolTip="{x:Static activity:Resources.Activity_DataType_Description}"/>
+            <sapv:TypePresenter Margin="0,0,0,5" 
+                                PropertyChanged="TypeSelection_PropertyChanged"
+                                Label="{x:Static activity:Resources.Activity_DataType_DisplayName}"
+                                ToolTip="{x:Static activity:Resources.Activity_DataType_Description}"
+                                Type="{Binding Path=ModelItem.DataType, 
+                                       Mode=TwoWay, 
+                                       Converter={StaticResource 
+                                       ResourceKey=ModelItemConverter}}"/>
+
+        </StackPanel>
     </uip:ActivityDecoratorControl>
 </sap:ActivityDesigner>

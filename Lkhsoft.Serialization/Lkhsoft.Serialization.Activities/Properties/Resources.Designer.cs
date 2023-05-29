@@ -60,6 +60,24 @@ namespace Lkhsoft.Serialization.Activities.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select any data type..
+        /// </summary>
+        public static string Activity_DataType_Description {
+            get {
+                return ResourceManager.GetString("Activity_DataType_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Type.
+        /// </summary>
+        public static string Activity_DataType_DisplayName {
+            get {
+                return ResourceManager.GetString("Activity_DataType_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Authentication.
         /// </summary>
         public static string Authentication_Category {

@@ -273,4 +273,10 @@
     <value>Input</value>
     <comment>category</comment>
   </data>
+  <data name="Activity_DataType_DisplayName" xml:space="preserve">
+    <value>Data Type</value>
+  </data>
+  <data name="Activity_DataType_Description" xml:space="preserve">
+    <value>Select any data type.</value>
+  </data>
 </root>
