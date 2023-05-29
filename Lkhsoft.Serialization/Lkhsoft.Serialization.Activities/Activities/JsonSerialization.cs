@@ -3,6 +3,8 @@ using System.Activities;
 using System.Threading;
 using System.Threading.Tasks;
 using Lkhsoft.Serialization.Activities.Properties;
+using Lkhsoft.Utility.Serialization;
+using Lkhsoft.Utility.Serialization.Implementations;
 using UiPath.Shared.Activities;
 using UiPath.Shared.Activities.Localization;
 
@@ -14,6 +16,7 @@ namespace Lkhsoft.Serialization.Activities
     {
         #region Properties
 
+        private IJsonSerializer _jsonSerializer { get; init; }
         /// <summary>
         /// If set, continue executing the remaining activities even if the current activity has failed.
         /// </summary>
@@ -44,6 +47,7 @@ namespace Lkhsoft.Serialization.Activities
 
         public JsonSerialization()
         {
+            _jsonSerializer = new JsonSerializer();
         }
 
         #endregion
@@ -62,7 +66,6 @@ namespace Lkhsoft.Serialization.Activities
         {
             // Inputs
             var timeout = TimeoutMS.Get(context);
-            var jsonobject = JsonObject.Get(context);
 
             // Set a timeout on the execution
             var task = ExecuteWithTimeout(context, cancellationToken);
@@ -79,6 +82,26 @@ namespace Lkhsoft.Serialization.Activities
             ///////////////////////////
             // Add execution logic HERE
             ///////////////////////////
+            
+            var @object = JsonObject.Get(context);
+            try
+            {
+                var result = await _jsonSerializer.SerializeAsync<>(@object);
+                if (result is null or {Length:0}) throw new NullReferenceException("Serialized Json object is null or empty!");
+                try
+                {
+                    JsonObject.Set(context, result);
+                }
+                catch ( ArgumentNullException e)
+                {
+                    throw new NullReferenceException("Result context object is null!", e);
+                }
+                
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException("Serialization error!", e);
+            }
         }
 
         #endregion
