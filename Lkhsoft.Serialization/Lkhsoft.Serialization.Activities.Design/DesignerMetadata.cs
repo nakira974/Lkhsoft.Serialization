@@ -23,6 +23,14 @@ namespace Lkhsoft.Serialization.Activities.Design
             builder.AddCustomAttributes(typeof(JsonSerialization), new DesignerAttribute(typeof(JsonSerializationDesigner)));
             builder.AddCustomAttributes(typeof(JsonSerialization), new HelpKeywordAttribute(""));
 
+            builder.AddCustomAttributes(typeof(XmlDeserialization), categoryAttribute);
+            builder.AddCustomAttributes(typeof(XmlDeserialization), new DesignerAttribute(typeof(XmlDeserializationDesigner)));
+            builder.AddCustomAttributes(typeof(XmlDeserialization), new HelpKeywordAttribute(""));
+
+            builder.AddCustomAttributes(typeof(XmlSerialization), categoryAttribute);
+            builder.AddCustomAttributes(typeof(XmlSerialization), new DesignerAttribute(typeof(XmlSerializationDesigner)));
+            builder.AddCustomAttributes(typeof(XmlSerialization), new HelpKeywordAttribute(""));
+
 
             MetadataStore.AddAttributeTable(builder.CreateTable());
         }

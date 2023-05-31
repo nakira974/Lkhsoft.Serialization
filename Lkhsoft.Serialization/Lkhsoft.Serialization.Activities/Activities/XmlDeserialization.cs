@@ -3,20 +3,17 @@ using System.Activities;
 using System.Threading;
 using System.Threading.Tasks;
 using Lkhsoft.Serialization.Activities.Properties;
-using Lkhsoft.Utility.Serialization;
-using Lkhsoft.Utility.Serialization.Implementations;
 using UiPath.Shared.Activities;
 using UiPath.Shared.Activities.Localization;
 
 namespace Lkhsoft.Serialization.Activities
 {
-    [LocalizedDisplayName(nameof(Resources.JsonSerialization_DisplayName))]
-    [LocalizedDescription(nameof(Resources.JsonSerialization_Description))]
-    public class JsonSerialization : ContinuableAsyncCodeActivity
+    [LocalizedDisplayName(nameof(Resources.XmlDeserialization_DisplayName))]
+    [LocalizedDescription(nameof(Resources.XmlDeserialization_Description))]
+    public class XmlDeserialization : ContinuableAsyncCodeActivity
     {
         #region Properties
 
-        private IJsonSerializer _jsonSerializer { get; init; }
         /// <summary>
         /// If set, continue executing the remaining activities even if the current activity has failed.
         /// </summary>
@@ -30,24 +27,23 @@ namespace Lkhsoft.Serialization.Activities
         [LocalizedDescription(nameof(Resources.Timeout_Description))]
         public InArgument<int> TimeoutMS { get; set; } = 60000;
 
-        [LocalizedDisplayName(nameof(Resources.JsonSerialization_JsonObject_DisplayName))]
-        [LocalizedDescription(nameof(Resources.JsonSerialization_JsonObject_Description))]
+        [LocalizedDisplayName(nameof(Resources.XmlDeserialization_Xml_DisplayName))]
+        [LocalizedDescription(nameof(Resources.XmlDeserialization_Xml_Description))]
         [LocalizedCategory(nameof(Resources.Input_Category))]
-        public InArgument<object> JsonObject { get; set; }
+        public InArgument<string> Xml { get; set; }
 
-        [LocalizedDisplayName(nameof(Resources.JsonSerialization_Json_DisplayName))]
-        [LocalizedDescription(nameof(Resources.JsonSerialization_Json_Description))]
-        [LocalizedCategory(nameof(Resources.Input_Category))]
-        public OutArgument<string> Json { get; set; }
+        [LocalizedDisplayName(nameof(Resources.XmlDeserialization_XmlObject_DisplayName))]
+        [LocalizedDescription(nameof(Resources.XmlDeserialization_XmlObject_Description))]
+        [LocalizedCategory(nameof(Resources.Output_Category))]
+        public OutArgument<object> XmlObject { get; set; }
 
         #endregion
 
 
         #region Constructors
 
-        public JsonSerialization()
+        public XmlDeserialization()
         {
-            _jsonSerializer = new JsonSerializer();
         }
 
         #endregion
@@ -57,7 +53,7 @@ namespace Lkhsoft.Serialization.Activities
 
         protected override void CacheMetadata(CodeActivityMetadata metadata)
         {
-            if (JsonObject == null) metadata.AddValidationError(string.Format(Resources.ValidationValue_Error, nameof(JsonObject)));
+            if (Xml == null) metadata.AddValidationError(string.Format(Resources.ValidationValue_Error, nameof(Xml)));
 
             base.CacheMetadata(metadata);
         }
@@ -66,6 +62,7 @@ namespace Lkhsoft.Serialization.Activities
         {
             // Inputs
             var timeout = TimeoutMS.Get(context);
+            var xml = Xml.Get(context);
 
             // Set a timeout on the execution
             var task = ExecuteWithTimeout(context, cancellationToken);
@@ -73,7 +70,7 @@ namespace Lkhsoft.Serialization.Activities
 
             // Outputs
             return (ctx) => {
-                Json.Set(ctx, null);
+                XmlObject.Set(ctx, null);
             };
         }
 
@@ -82,26 +79,6 @@ namespace Lkhsoft.Serialization.Activities
             ///////////////////////////
             // Add execution logic HERE
             ///////////////////////////
-            
-            Object @object = JsonObject.Get(context);
-            try
-            {
-                var result = await _jsonSerializer.SerializeAsync<Object>(@object);
-                if (result is null or {Length:0}) throw new NullReferenceException("Serialized Json object is null or empty!");
-                try
-                {
-                    JsonObject.Set(context, result);
-                }
-                catch ( ArgumentNullException e)
-                {
-                    throw new NullReferenceException("Result context object is null!", e);
-                }
-                
-            }
-            catch (Exception e)
-            {
-                throw new InvalidOperationException("Serialization error!", e);
-            }
         }
 
         #endregion
