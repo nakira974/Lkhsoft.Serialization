@@ -4,12 +4,11 @@ using System.ComponentModel;
 namespace Lkhsoft.Serialization.Activities.Design.Designers
 {
     /// <summary>
-    /// Interaction logic for JsonDeserializationDesigner.xaml
+    /// Interaction logic for XmlDeserializationDesigner.xaml
     /// </summary>
-    public partial class JsonDeserializationDesigner
+    public partial class XmlDeserializationDesigner
     {
-        
-        public JsonDeserializationDesigner()
+        public XmlDeserializationDesigner()
         {
             InitializeComponent();
         }

@@ -1,4 +1,4 @@
-<sap:ActivityDesigner x:Class="Lkhsoft.Serialization.Activities.Design.Designers.JsonDeserializationDesigner"
+<sap:ActivityDesigner x:Class="Lkhsoft.Serialization.Activities.Design.Designers.XmlSerializationDesigner"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:activity="clr-namespace:Lkhsoft.Serialization.Activities.Properties;assembly=Lkhsoft.Serialization.Activities"
@@ -15,7 +15,6 @@
             </ResourceDictionary.MergedDictionaries>
             <sapc:ArgumentToExpressionConverter x:Key="ArgumentToExpressionConverter" />
             <converters:ActivityIconConverter x:Key="ActivityIconConverter" />
-            <sapc:ModelToObjectValueConverter x:Key="ModelItemConverter" /> 
         </ResourceDictionary>
     </sap:ActivityDesigner.Resources>
 
@@ -24,23 +23,19 @@
     </sap:ActivityDesigner.Icon>
 
     <uip:ActivityDecoratorControl Style="{StaticResource ActivityDecoratorStyle}">
-        <StackPanel>
-            <Label Content="{x:Static activity:Resources.JsonDeserialization_Json_DisplayName}" Grid.Row="0"
-                   ToolTip="{x:Static activity:Resources.JsonDeserialization_Json_Description}"/>
-            <sapv:ExpressionTextBox Grid.Row="1" ExpressionType="{Binding ModelItem.Properties[Json].PropertyType.GenericTypeArguments[0]}" OwnerActivity="{Binding Path=ModelItem}" HintText="{x:Static activity:Resources.JsonDeserialization_Json_Description}" UseLocationExpression="False">
+        <Grid Width="300">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Content="{x:Static activity:Resources.XmlSerialization_XmlObject_DisplayName}" Grid.Row="0"
+                   ToolTip="{x:Static activity:Resources.XmlSerialization_XmlObject_Description}"/>
+            <sapv:ExpressionTextBox Grid.Row="1" ExpressionType="{Binding ModelItem.Properties[XmlObject].PropertyType.GenericTypeArguments[0]}" OwnerActivity="{Binding Path=ModelItem}" HintText="{x:Static activity:Resources.XmlSerialization_XmlObject_Description}" UseLocationExpression="False">
                 <sapv:ExpressionTextBox.Expression>
-                    <Binding Path="ModelItem.Json" Converter="{StaticResource ArgumentToExpressionConverter}" Mode="TwoWay" ConverterParameter="In" UpdateSourceTrigger="PropertyChanged" />
+                    <Binding Path="ModelItem.XmlObject" Converter="{StaticResource ArgumentToExpressionConverter}" Mode="TwoWay" ConverterParameter="In" UpdateSourceTrigger="PropertyChanged" />
                 </sapv:ExpressionTextBox.Expression>
             </sapv:ExpressionTextBox>
-            <sapv:TypePresenter Margin="0,0,0,5" 
-                                PropertyChanged="TypeSelection_PropertyChanged"
-                                Label="{x:Static activity:Resources.Activity_DataType_DisplayName}"
-                                ToolTip="{x:Static activity:Resources.Activity_DataType_Description}"
-                                Type="{Binding Path=ModelItem.DataType, 
-                                       Mode=TwoWay, 
-                                       Converter={StaticResource 
-                                       ResourceKey=ModelItemConverter}}"/>
-
-        </StackPanel>
+        </Grid>
     </uip:ActivityDecoratorControl>
 </sap:ActivityDesigner>
